@@ -41,6 +41,7 @@ pipeline {
             steps {
                 echo "Hello page load..."
                 sh '''
+                    rm -rf node_modules package-lock.json
                     npm install uuid
                     node -e "require('./netlify/functions/app.js'); console.log('Script function loaded successfully')"
                 '''
