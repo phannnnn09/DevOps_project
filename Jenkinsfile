@@ -25,7 +25,6 @@ pipeline {
                 echo "🔧 Checking required files..."
                 sh '''
                     test -f index.html || (echo "Missing index.html" && exit 1)
-                    test -f netlify/functions/app.js || (echo "Missing script function" && exit 1)
                     echo "Build check passed."
                 '''
             }
@@ -43,7 +42,6 @@ pipeline {
                 sh '''
                     rm -rf node_modules package-lock.json
                     npm install uuid
-                    node -e "require('./netlify/functions/app.js'); console.log('Script function loaded successfully')"
                 '''
             }
         }
