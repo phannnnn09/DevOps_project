@@ -1,0 +1,234 @@
+Started by user Phanthira Sangwanphet
+Obtained Jenkinsfile from git https://github.com/phannnnn09/DevOps_project.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/DevOps_project
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/DevOps_project/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/phannnnn09/DevOps_project.git # timeout=10
+Fetching upstream changes from https://github.com/phannnnn09/DevOps_project.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/phannnnn09/DevOps_project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 3384392e0892837c416d1ecd3543e52f7dd9147a (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 3384392e0892837c416d1ecd3543e52f7dd9147a # timeout=10
+Commit message: "up html jaa"
+ > git rev-list --no-walk 19f809d65dd674c7ada64ad69389b63dba6e4271 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $NETLIFY_AUTH_TOKEN
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/DevOps_project/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/phannnnn09/DevOps_project.git # timeout=10
+Fetching upstream changes from https://github.com/phannnnn09/DevOps_project.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/phannnnn09/DevOps_project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 3384392e0892837c416d1ecd3543e52f7dd9147a (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 3384392e0892837c416d1ecd3543e52f7dd9147a # timeout=10
+Commit message: "up html jaa"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] getContext
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:18-alpine
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 4277269b2c6fb75d5c39efa8ff63fd043ea5f5f5325e330ad4f348c1c4a29c64
+but /var/jenkins_home/workspace/DevOps_project could not be found among []
+but /var/jenkins_home/workspace/DevOps_project@tmp could not be found among []
+$ docker run -t -d -u 1000:1000 -w /var/jenkins_home/workspace/DevOps_project -v /var/jenkins_home/workspace/DevOps_project:/var/jenkins_home/workspace/DevOps_project:rw,z -v /var/jenkins_home/workspace/DevOps_project@tmp:/var/jenkins_home/workspace/DevOps_project@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:18-alpine cat
+$ docker top 3b47884434ecf741bbd8b5e89018904add3747fe396188f45cfbbce7b97090e4 -eo pid,comm
+[Pipeline] {
+[Pipeline] echo
+🔧 Checking required files...
+[Pipeline] sh
++ test -f index.html
++ echo 'Build check passed.'
+Build check passed.
+[Pipeline] }
+$ docker stop --time=1 3b47884434ecf741bbd8b5e89018904add3747fe396188f45cfbbce7b97090e4
+$ docker rm -f --volumes 3b47884434ecf741bbd8b5e89018904add3747fe396188f45cfbbce7b97090e4
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] getContext
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:18-alpine
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 4277269b2c6fb75d5c39efa8ff63fd043ea5f5f5325e330ad4f348c1c4a29c64
+but /var/jenkins_home/workspace/DevOps_project could not be found among []
+but /var/jenkins_home/workspace/DevOps_project@tmp could not be found among []
+$ docker run -t -d -u 1000:1000 -w /var/jenkins_home/workspace/DevOps_project -v /var/jenkins_home/workspace/DevOps_project:/var/jenkins_home/workspace/DevOps_project:rw,z -v /var/jenkins_home/workspace/DevOps_project@tmp:/var/jenkins_home/workspace/DevOps_project@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:18-alpine cat
+$ docker top 7268b9b7e4ddf91414d3e763ad6a021d163b466eea9737ff35d120b4a0fc0e66 -eo pid,comm
+[Pipeline] {
+[Pipeline] echo
+Hello page load...
+[Pipeline] sh
++ rm -rf node_modules package-lock.json
++ npm install uuid
+
+added 1 package, and audited 2 packages in 3s
+
+found 0 vulnerabilities
+[Pipeline] }
+$ docker stop --time=1 7268b9b7e4ddf91414d3e763ad6a021d163b466eea9737ff35d120b4a0fc0e66
+$ docker rm -f --volumes 7268b9b7e4ddf91414d3e763ad6a021d163b466eea9737ff35d120b4a0fc0e66
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] getContext
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:18-alpine
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 4277269b2c6fb75d5c39efa8ff63fd043ea5f5f5325e330ad4f348c1c4a29c64
+but /var/jenkins_home/workspace/DevOps_project could not be found among []
+but /var/jenkins_home/workspace/DevOps_project@tmp could not be found among []
+$ docker run -t -d -u 1000:1000 -w /var/jenkins_home/workspace/DevOps_project -v /var/jenkins_home/workspace/DevOps_project:/var/jenkins_home/workspace/DevOps_project:rw,z -v /var/jenkins_home/workspace/DevOps_project@tmp:/var/jenkins_home/workspace/DevOps_project@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:18-alpine cat
+$ docker top f746efe713c32598ac5129b22240e216346ae0369e1cd49d3546398e8fbdd249 -eo pid,comm
+[Pipeline] {
+[Pipeline] echo
+Deploying to Netlify...
+[Pipeline] sh
++ npm install netlify-cli
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+npm warn deprecated gauge@3.0.2: This package is no longer supported.
+npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+
+added 1596 packages, and audited 1601 packages in 2m
+
+250 packages are looking for funding
+  run `npm fund` for details
+
+8 moderate severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
++ npx netlify deploy '--auth=****' '--site=c1fb8df4-6585-41ed-85ff-5805a589d5da' '--dir=.' --prod
+Deploy path:        /var/jenkins_home/workspace/DevOps_project
+Functions path:     /var/jenkins_home/workspace/DevOps_project/netlify/functions
+Configuration path: /var/jenkins_home/workspace/DevOps_project/netlify.toml
+Functions folder "/var/jenkins_home/workspace/DevOps_project/netlify/functions" specified but it doesn't exist! Will proceed without deploying functions
+Deploying to main site URL...
+[33m⠋[39m Uploading blobs to deploy store...
+
+​
+Netlify Build                                                 
+────────────────────────────────────────────────────────────────
+​
+❯ Version
+  @netlify/build 30.0.6
+​
+❯ Flags
+  auth: ****
+  deployId: 67e7d4b836c05bcd1ce380fe
+  dir: .
+  open: false
+  prod: true
+  prodIfUnlocked: false
+  site: c1fb8df4-6585-41ed-85ff-5805a589d5da
+  skipFunctionsCache: false
+​
+❯ Current directory
+  /var/jenkins_home/workspace/DevOps_project
+​
+❯ Config file
+  /var/jenkins_home/workspace/DevOps_project/netlify.toml
+​
+❯ Context
+  dev
+[33m⠙[39m Finished uploading blobs to deploy store
+[33m⠋[39m Hashing files...
+[33m⠋[39m Looking for a functions cache...
+[33m⠙[39m No cached functions were found
+[33m⠙[39m Finished hashing 
+[33m⠋[39m CDN diffing files...
+[33m⠙[39m CDN requesting 1 files
+[33m⠋[39m Uploading 1 files
+[33m⠙[39m Finished uploading 1 assets
+[33m⠋[39m Waiting for deploy to go live...
+[33m⠙[39m Deploy is live!
+
+Build logs:         https://app.netlify.com/sites/eieieiei/deploys/67e7d4b836c05bcd1ce380fe
+Function logs:      https://app.netlify.com/sites/eieieiei/logs/functions
+Edge function Logs: https://app.netlify.com/sites/eieieiei/logs/edge-functions
+Unique deploy URL:  https://67e7d4b836c05bcd1ce380fe--eieieiei.netlify.app
+Website URL:        https://eieieiei.netlify.app
+[Pipeline] }
+$ docker stop --time=1 f746efe713c32598ac5129b22240e216346ae0369e1cd49d3546398e8fbdd249
+$ docker rm -f --volumes f746efe713c32598ac5129b22240e216346ae0369e1cd49d3546398e8fbdd249
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Post Deploy)
+[Pipeline] echo
+Deployment complete! Hello Page.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+CI/CD pipeline finished successfully.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
